@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Source Example &mdash; Lab1 2.00 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.00',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Lab1 2.00 documentation" href="../LAB1.html" />
+    <link rel="prev" title="Welcome to Lab1’s documentation!" href="../LAB1.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../LAB1.html" title="Welcome to Lab1’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../LAB1.html">Lab1 2.00 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="source-example">
+<h1>Source Example<a class="headerlink" href="#source-example" title="Permalink to this headline">¶</a></h1>
+<p>Source1 provides functions for describing a triangle.</p>
+<div class="section" id="determining-triangle-type">
+<h2>Determining Triangle Type<a class="headerlink" href="#determining-triangle-type" title="Permalink to this headline">¶</a></h2>
+<p>The function <a class="reference internal" href="#source.source1.get_triangle_type" title="source.source1.get_triangle_type"><code class="xref py py-func docutils literal"><span class="pre">source.source1.get_triangle_type()</span></code></a> provides users with a way to provide a set of three sides
+of a triangle and returns the type of triangle (&#8220;equilateral&#8221;, &#8220;isosceles&#8221;, &#8220;scalene&#8221; or &#8220;invalid&#8221;)</p>
+</div>
+<div class="section" id="scalene-example">
+<h2>Scalene Example<a class="headerlink" href="#scalene-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">source.source1</span> <span class="kn">import</span> <span class="n">get_triangle_type</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_triangle_type</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">&#39;scalene&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-source.source1">
+<span id="module-reference"></span><h2>Module Reference<a class="headerlink" href="#module-source.source1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="source-source1-example-source-code">
+<h3><a class="reference internal" href="#module-source.source1" title="source.source1"><code class="xref py py-mod docutils literal"><span class="pre">source.source1</span></code></a> &#8211; Example source code<a class="headerlink" href="#source-source1-example-source-code" title="Permalink to this headline">¶</a></h3>
+<p>The following example code determines if a set of 3 sides of a triangle is equilateral, scalene or iscoceles</p>
+<dl class="function">
+<dt id="source.source1.get_triangle_type">
+<code class="descclassname">source.source1.</code><code class="descname">get_triangle_type</code><span class="sig-paren">(</span><em>a=0</em>, <em>b=0</em>, <em>c=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/source/source1.html#get_triangle_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#source.source1.get_triangle_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the given triangle is equilateral, scalene or Isosceles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> (<em>float or int or tuple or list or dict</em>) &#8211; line a</li>
+<li><strong>b</strong> (<em>float</em>) &#8211; line b</li>
+<li><strong>c</strong> (<em>float</em>) &#8211; line c</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">&#8220;equilateral&#8221;, &#8220;isosceles&#8221;, &#8220;scalene&#8221; or &#8220;invalid&#8221;</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../LAB1.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Source Example</a><ul>
+<li><a class="reference internal" href="#determining-triangle-type">Determining Triangle Type</a></li>
+<li><a class="reference internal" href="#scalene-example">Scalene Example</a></li>
+<li><a class="reference internal" href="#module-source.source1">Module Reference</a><ul>
+<li><a class="reference internal" href="#source-source1-example-source-code"><code class="docutils literal"><span class="pre">source.source1</span></code> &#8211; Example source code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../LAB1.html"
+                        title="previous chapter">Welcome to Lab1&#8217;s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/source1.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, CST236.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="../_sources/code/source1.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
