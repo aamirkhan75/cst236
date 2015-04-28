@@ -1,5 +1,5 @@
-from pyTona.question_answer import QA
-from pyTona.answer_funcs import feet_to_miles, hal_20
+from question_answer import QA
+from answer_funcs import feet_to_miles, hal_20
 
 import difflib
 NOT_A_QUESTION_RETURN = "Was that a question?"
@@ -16,7 +16,9 @@ class Interface(object):
         self.who_dict = {}
 
         self.keywords = ['How', 'What', 'Where', 'Who', "Why"]
-        self.question_mark = chr(0x3E)
+        #self.question_mark = chr(0x3E)
+        self.question_mark = '?'
+        #print 'self.question_mark=',self.question_mark
 
         self.question_answers = {
             'What is feet in miles': QA('What is feed in miles', feet_to_miles),
@@ -32,6 +34,7 @@ class Interface(object):
         if not isinstance(question, str):
             self.last_question = None
             raise Exception('Not A String!')
+        #print 'question.split()=',question.split(' ')
         if question[-1] != self.question_mark or question.split(' ')[0] not in self.keywords:
             self.last_question = None
             return NOT_A_QUESTION_RETURN
@@ -41,13 +44,17 @@ class Interface(object):
             for keyword in question.split(' '):
                 try:
                     args.append(float(keyword))
+                    #print 'args=',args
                 except:
                     parsed_question += "{0} ".format(keyword)
+                    #print 'parsed_question=',parsed_question
             parsed_question = parsed_question[0:-2]
+            #print 'parsed_question 2=',parsed_question
             self.last_question = parsed_question
             for answer in self.question_answers.values():
-                print answer.question
+                #print answer.question
                 if difflib.SequenceMatcher(a=answer.question, b=parsed_question).ratio() >= .90:
+                    #print 'ration >= 90'
                     if answer.function is None:
                         return answer.value
                     else:
@@ -56,6 +63,7 @@ class Interface(object):
                         except:
                             raise Exception("Too many extra parameters")
             else:
+                #print 'return unknown'
                 return UNKNOWN_QUESTION
 
     def teach(self, answer=""):
@@ -74,3 +82,9 @@ class Interface(object):
 
     def __add_answer(self, answer):
         self.question_answers[self.last_question] = QA(self.last_question, answer)
+
+
+# dream = Interface()        
+# question = "How about a valid match?"
+# answer = dream.ask(question)
+# print 'answer=',answer
