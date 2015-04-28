@@ -21,8 +21,16 @@ def requirements(req_list):
 
     return wrapper
 
+flog = open("ReqTracer.log", "w")
 with open('pyTonaRequirements.txt') as f:
     for line in f.readlines():
         if '#00' in line:
             req_id, desc = line.split(' ', 1)
             Requirements[req_id] = RequirementTrace(desc)
+            #print req_id,desc
+            
+
+            
+            flog.write(req_id + " " + desc + "\n")
+
+flog.close()          
