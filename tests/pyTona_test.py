@@ -257,10 +257,10 @@ class TestPyTona(TestCase):
         question = "Where am I?"
         answer = dream.ask(question)
         self.assertTrue(isinstance(answer,str))
-        if not (answer == "unknown"): 
+        if  (answer == "unknown"): 
             self.assertTrue(1)
         else: 
-             self.assertEqual(answer,get_git_branch())  
+             self.assertEqual( answer,get_git_branch())  
 
     #0023 The system shall respond to the question "Where are you" with the URL for the git repo or "unknown" if it can't be determined
     @requirements(['#0023' , '#0023'])
@@ -322,21 +322,21 @@ class TestPyTona(TestCase):
     #   self.assertIsInstance(answer,int)          
     #   self.assertEqual(answer,3)
 
-    #0029 If the system has not determined the requested digit of the Fibonacci sequence it will respond with A)"Thinking...", B)"One second" or C)"cool your jets" based on a randomly generated number (A is 60% chance, B is 30% chance, C is 10% chance) 
-    @requirements(['#0029' , '#0029'])
-    def test_0029_not_determined(self):
-      dream = Interface()
-      question = 'What is the digits of the Fibonacci sequence 5?'
-      answer = dream.ask(question)        
-      if  (answer != 3):
-        if (answer == "Thinking"):
-            pass
-        elif(answer == "One second"):
-            pass
-        elif(answer =="cool your jets"):
-            pass
-        else: 
-            self.assertTrue (1)        
+    # #0029 If the system has not determined the requested digit of the Fibonacci sequence it will respond with A)"Thinking...", B)"One second" or C)"cool your jets" based on a randomly generated number (A is 60% chance, B is 30% chance, C is 10% chance) 
+    # @requirements(['#0029' , '#0029'])
+    # def test_0029_not_determined(self):
+    #   dream = Interface()
+    #   question = 'What is the digits of the Fibonacci sequence 5?'
+    #   answer = dream.ask(question)        
+    #   if  (answer != 3):
+    #     if (answer == "Thinking"):
+    #         pass
+    #     elif(answer == "One second"):
+    #         pass
+    #     elif(answer =="cool your jets"):
+    #         pass
+    #     else: 
+    #         self.assertTrue (1)        
         
     #0030 The system shall respond to the question "Where am I" with "Unknown" if it can't be determined    
     @requirements(['#0030' , '#0030'])
@@ -345,8 +345,10 @@ class TestPyTona(TestCase):
         question = "Where am I?"
         answer = dream.ask(question)
         self.assertTrue(isinstance(answer,str))
-        if (answer == "Unknown"): 
+        if (answer == "Unknownn"): 
             self.assertTrue(1)
+        else:
+            self.assertEqual('lab4',get_git_branch())
 
     #0031 The system shall respond to the question "Where are you" with "Unknown" if it can't be determined        
     @requirements(['#0031' , '#0031'])
@@ -356,42 +358,49 @@ class TestPyTona(TestCase):
         answer = dream.ask(question)
         self.assertTrue(isinstance(answer,str))
         if (answer == "Unknown"): 
-            self.assertTrue(1)  
+            self.assertTrue(1) 
+        subprocess.Popen = Mock (return_value = None)
+        self.assertEqual(get_git_url(),'Unknown')
+     
 
-    # #0032 If the system has not determined the requested digit of the Fibonacci sequence it will respond with A)"Thinking...", B)"One second" or C)"cool your jets" based on a randomly generated number (A is 60% chance, B is 30% chance, C is 10% chance)
-    # @requirements(['#0032' , '#0032'])
-    # def test_0032_not_determined(self):
-    #   value = Mock (return_value = 1) 
-    #   self.assertEqual(get_fibonacci_seq(5) ,'cool your jets')
-    #   value = Mock (return_value = 7) 
-    #   self.assertEqual(get_fibonacci_seq(5) ,'Thinking...')
-    #   value = Mock (return_value = 5) 
-    #   self.assertEqual(get_fibonacci_seq(5) ,'One second')
 
-    # #0033 The system should return "Too many extra parameters" if the function argument is not correct
-    # @requirements(['#0033' , '#0033'])
-    # def test_0033_Too_many_extra_parameters(self):
-    #     dream = Interface()
-    #     question = "What is the five digits of the Fibonacci sequence?"
-    #     answer = dream.ask(question)
-    #     self.assertRaises(Exception,dream.ask,question)
-    #     try: 
-    #         answer = dream.ask(question)
-    #     except Exception as e:
-    #            self.assertEqual(e.args[0],'Too many extra parameters' )
+    #0032 If the system has not determined the requested digit of the Fibonacci sequence it will respond with A)"Thinking...", B)"One second" or C)"cool your jets" based on a randomly generated number (A is 60% chance, B is 30% chance, C is 10% chance)
+    @requirements(['#0032' , '#0032'])
+    def test_0032_not_determined(self):
+      random.randint = Mock (return_value = 1) 
+      self.assertEqual(get_fibonacci_seq(5) ,'cool your jets')
+      random.randint = Mock (return_value = 7) 
+      self.assertEqual(get_fibonacci_seq(5) ,'Thinking...')
+      random.randint = Mock (return_value = 5) 
+      self.assertEqual(get_fibonacci_seq(5) ,'One second')
 
-    # #0034 The system shall able to reutn None to local git branch            
-    # @requirements(['#0034' , '#0034'])
-    # def test_0034_T_Return_None(self):
-    #     # process = subprocess.Popen(['git', 'config', '--get', 'remote.origin.url'], stdout=subprocess.PIPE)
-    #     # process.communicate = Mock(return_value = None)
-    #     output = Mock(return_value = None)
-    #     self.assertEqual(get_git_branch(), 'Unknown')
+    #0033 The system should return "Too many extra parameters" if the function argument is not correct
+    @requirements(['#0033' , '#0033'])
+    def test_0033_Too_many_extra_parameters(self):
+        dream = Interface()
+        question = "What is a feet in miles?"
+        # answer = dream.ask(question)
+        # self.assertRaises(Exception,dream.ask,question)
+        try: 
+            answer = dream.ask(question)
+        except Exception as e:
+               self.assertEqual(e.args[0],'Too many extra parameters' )
+
+    #0034 The system shall able to reutn None to local git branch            
+    @requirements(['#0034' , '#0034'])
+    def test_0034_T_Return_None(self):
+        # process = subprocess.Popen(['git', 'config', '--get', 'remote.origin.url'], stdout=subprocess.PIPE)
+        # process.communicate = Mock(return_value = None)
+        output = Mock(return_value = None)
+        self.assertEqual(get_git_branch(), 'Unknown')
+        subprocess.Popen = Mock (return_value = None)
+        self.assertEqual(get_git_branch(),'Unknown')
 
     #0035 The system shall respond to the question "What is the <int> digit of the Fibonacci sequence?" with the correct number from the fibonnacci sequence if the number has been found    
     @requirements(['#0035' , '#0035'])
     def test_0035_Fib_Seq_Finder(self):
         seq_finder = FibSeqFinder()
+        seq_finder.stop()
         get_fibonacci_seq(-1)
 
      
