@@ -348,7 +348,7 @@ class TestPyTona(TestCase):
         if (answer == "Unknownn"): 
             self.assertTrue(1)
         else:
-            self.assertEqual('lab4',get_git_branch())
+            self.assertEqual('Lab4',get_git_branch())
 
     #0031 The system shall respond to the question "Where are you" with "Unknown" if it can't be determined        
     @requirements(['#0031' , '#0031'])
