@@ -67,3 +67,15 @@ Username shall be determined by the name of the currently logged in user.
 #0028 The system shall respond to the question "What is the <int> digit of the Fibonacci sequence?" with the correct number from the fibonnacci sequence if the number has been found
 
 #0029 If the system has not determined the requested digit of the Fibonacci sequence it will respond with A)"Thinking...", B)"One second" or C)"cool your jets" based on a randomly generated number (A is 60% chance, B is 30% chance, C is 10% chance)
+
+#0030 The system shall respond to the question "Where am I" with "Unknown" if it can't be determined
+
+#0031 The system shall respond to the question "Where are you" with "Unknown" if it can't be determined
+
+#0032 If the system has not determined the requested digit of the Fibonacci sequence it will respond with A)"Thinking...", B)"One second" or C)"cool your jets" based on a randomly generated number (A is 60% chance, B is 30% chance, C is 10% chance)
+
+#0033 The system should return "Too many extra parameters" if the function argument is not correct
+
+#0034 The system shall able to reutn None to local git branch 
+
+#0035 The system shall respond to the question "What is the <int> digit of the Fibonacci sequence?" with the correct number from the fibonnacci sequence if the number has been found
