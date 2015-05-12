@@ -4,6 +4,9 @@ import socket
 import subprocess
 import threading
 import time
+from time import strftime
+import threading
+import time
 
 seq_finder = None
 
@@ -63,7 +66,7 @@ class FibSeqFinder(threading.Thread):
 
     def run(self):
         self.num_indexes = 0
-        while not self._stop.isSet() and self.num_indexes < 1000:
+        while not self._stop.isSet() and self.num_indexes <= 1000:
             self.sequence.append(self.sequence[-1] + self.sequence[-2])
             self.num_indexes += 1
             time.sleep(.04)
@@ -86,3 +89,80 @@ def get_fibonacci_seq(index):
             return "cool your jets"
     else:
         return seq_finder.sequence[index]
+
+def get_fibonacci_seq_list(index):
+        index = int (index)
+        global seq_finder
+        if seq_finder is None:
+
+            seq_finder = FibSeqFinder()
+            seq_finder.start()
+            seq_finder.join()
+
+        if index > seq_finder.num_indexes:
+            return "Number is too big"
+        else:
+            return seq_finder.sequence[:index]  
+
+def get_fibonacci_seq_list2(start,end):
+        start= int (start)
+        end = int (end)
+        global seq_finder
+        if seq_finder is None:
+
+            seq_finder = FibSeqFinder()
+            seq_finder.start()
+            seq_finder.join()
+
+        if start > seq_finder.num_indexes or end > seq_finder.num_indexes:
+            return "Number is too big"
+        else:
+            return seq_finder.sequence[start : end] 
+
+def get_fibonacci_seq_list3(index):
+        index = int (index)
+        global seq_finder
+        if seq_finder is None:
+
+            seq_finder = FibSeqFinder()
+            seq_finder.start()
+            seq_finder.join()
+
+        if index > seq_finder.num_indexes:
+            return "Number is too big"
+        else:
+            return seq_finder.sequence[-index:]  
+
+def write_in_a_file():
+        mylist = [i**2 for i in range(random.randint(1,12))]
+        try: 
+            f = open('output.txt', 'a')
+            for item in mylist: 
+                f.write(strftime("%Y-%m-%d %H:%M:%S ") + str(item)+ '\n')
+            f.close()
+            return 'writing in the file'
+        except: 
+            return 'io error'        
+
+                                           
+
+
+
+
+
+# class FibSeqFinder(threading.Thread):
+#     def __init__(self):
+#         self.lock = threading.RLock()
+#         self.thread = None
+
+#     def start_thread(self):
+#         self.lock.aquire()
+#         self.thread = threading.Thread(self.proc_data)
+
+#     def stop_thread(self):
+#         self.lock.release()
+
+#     def proc_data(self):
+#         while not self.lock.aquire(False):
+#             print "still running"
+#             time.sleep(.05)

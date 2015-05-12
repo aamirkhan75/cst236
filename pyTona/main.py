@@ -1,5 +1,5 @@
 from pyTona.question_answer import QA
-from pyTona.answer_funcs import feet_to_miles, hal_20, get_git_branch, get_git_url, get_other_users, get_fibonacci_seq
+from pyTona.answer_funcs import feet_to_miles, hal_20, get_git_branch, get_git_url, get_other_users, get_fibonacci_seq,get_fibonacci_seq_list,get_fibonacci_seq_list2,get_fibonacci_seq_list3,write_in_a_file
 
 import difflib
 NOT_A_QUESTION_RETURN = "Was that a question?"
@@ -27,7 +27,14 @@ class Interface(object):
             'Where am I': QA('Where am I', get_git_branch),
             'Where are you': QA('Where are you', get_git_url),
             'Who else is here': QA('Who else is here', get_other_users),
-            'What is the digit of the Fibonacci sequence': QA('What is the digit of the Fibonacci sequence', get_fibonacci_seq)
+            'What is the digit of the Fibonacci sequence': QA('What is the digit of the Fibonacci sequence', get_fibonacci_seq),
+            'What is the first number of the fibonacci sequence' : QA ('What is the first number of the fibonacci sequence', get_fibonacci_seq_list),
+            'What is the febonacci sequence from to' : QA ('What is the febonacci sequence from to', get_fibonacci_seq_list2),
+            'What is the last number of febonacci sequence' : QA ('What is the last number of febonacci sequence' , get_fibonacci_seq_list3),
+            'How about write to a file' : QA ('How about write to a file', write_in_a_file)
+
+
+
         }
         self.last_question = None
 

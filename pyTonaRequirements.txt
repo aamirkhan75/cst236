@@ -79,3 +79,19 @@ Username shall be determined by the name of the currently logged in user.
 #0033 The system shall stop generating Fibonacci sequence numbers once it has identified the first 1,000 numbers
 
 #0034 The system shall generate the first 1,000 Fibonacci sequence numbers in under 60 seconds
+
+#0035 The system shall answer the question "What is the first 1000 number of the fibonacci sequence" with in 60 seconds.
+
+#0036 The system shall answer the question "what is the febonacci sequence from 100 to 500" with in 30 seconds.
+
+#0037 The system shall generate the last Fibonacci sequence numbers in under 30 seconds
+
+#0038 The system shall answer the question "How about write to a file" with the answer "writing in the file"
+
+#0039 The system shall answer the question "What is the first 10 number of the fibonacci sequence?" with the answer "[0,1,1,2,3,5,8,13,21,34]"
+
+#0040 The system shall answer the question "What is the febonacci sequence from 3 to 7 ?" with the answer "[2,3,5,8,13]"   
+
+#0041 The system shall answer the question "What is the last 2 number of febonacci sequence?" with the answer "[70330367711422815821835254877183549770181269836358732742604905087154537118196933579742249494562611733487750449241765991088186363265450223647106012053374121273867339111198139373125598767690091902245245323403501L,113796925398360272257523782552224175572745930353730513145086634176691092536145985470146129334641866902783673042322088625863396052888690096969577173696370562180400527049497109023054114771394568040040412172632376L]"
+
+#0042 The system  should able to write in a file in less 5 seconds.
