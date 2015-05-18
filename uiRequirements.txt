@@ -1,0 +1,11 @@
+#0001 The system window shall have a title of "SharpTona"
+#0002 The system shall provide labels "Question:" and "Answer:"
+#0003 The system shall allow the user to enter a question and press the "Ask" button to receive an answer.
+#0004 The system shall have a default question/answer of "What is the answer to everything?": "42"
+#0005 The system by default shall disable the answer box, "Teach" button and "Correct" button
+#0006 The system shall display answers in the Answer Text Box
+#0007 If no question is asked when the "Ask" button is pushed then "Was that a question?" shall be displayed in the answer box
+#0008 If the "Ask" button is pushed and the question is known the answer box shall display the answer and enable user input.
+#0009 If the "Correct" button is pushed the system shall update the answer to the given question and disable the answer box, teach button and correct button
+#0010 If the "Ask button is pushed and the question is not known then the answer box shall display "I don't know please teach me." and the "Teach" button will be enabled
+#0011 If the "Teach button is pushed the system shall store the answer to the given question and disable the answer box, teach button and correct button

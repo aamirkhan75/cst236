@@ -21,7 +21,7 @@ def requirements(req_list):
 
     return wrapper
 
-with open('pyTonaRequirements.txt') as f:
+with open('uiRequirements.txt') as f:
     for line in f.readlines():
         if '#00' in line:
             req_id, desc = line.split(' ', 1)
